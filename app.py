@@ -9,9 +9,6 @@ model_path = hf_hub_download(
 )
 model = joblib.load(model_path)
 
-# Load training columns
-X_train = pd.read_csv("tourism_project/data/X_train.csv")
-
 def predict():
     input_data = pd.DataFrame(columns=X_train.columns)
     input_data.loc[0] = 0
