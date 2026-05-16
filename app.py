@@ -10,7 +10,7 @@ model_path = hf_hub_download(
 model = joblib.load(model_path)
 
 def predict():
-    input_data = pd.DataFrame(columns=X_train.columns)
+    input_data = pd.DataFrame(columns=feature_cols)
     input_data.loc[0] = 0
 
     input_data.at[0, 'Age'] = 35
