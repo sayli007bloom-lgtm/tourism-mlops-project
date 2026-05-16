@@ -5,8 +5,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch: {}
-  
+  workflow_dispatch:
+
 permissions:
   contents: write
 
@@ -32,11 +32,11 @@ jobs:
         run: |
           python -m py_compile app.py
 
-     - name: Step 5 - Run inference (end-to-end)
+      - name: Step 5 - Run inference (end-to-end)
         run: |
           python app.py
 
-      - name: Auto-commit and push changes
+      - name: Step 6 - Auto-commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -45,5 +45,3 @@ jobs:
             git commit -m "auto update"
             git push
           fi
-
-          
